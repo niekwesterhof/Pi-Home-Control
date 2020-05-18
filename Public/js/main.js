@@ -262,7 +262,7 @@ function createNavbar() {
   for (var i = 0; i < rooms.length; i++) {
     navbar += "<li><a onclick='openRoom(" + i + ")'>" + rooms[i].name + "</a></li>";
   }
-  document.getElementById("rooms").innerHTML = navbar;
+  document.getElementById("rooms").innerHTML = navbarrr;
 }
 
 socket.on("newDeviceFound", (payload) => {
