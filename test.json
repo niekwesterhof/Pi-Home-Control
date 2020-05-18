@@ -1,0 +1,18 @@
+[
+  { "name": "Woonkamer", "ID": [{ "NAME": "Lamp", "TYPE": "wakeUp", "STATUS": "0", "VALUE": "285", "DEVICE_ID": 2, "WAKEUPTIME": "20:46", "WAKEUPTIMESTATUS": "0" }] },
+  { "name": "Keuken", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 3 }] },
+  { "name": "Studeerkamer", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 4 }] },
+  { "name": "WC", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 5 }] },
+  {
+    "name": "Hal",
+    "ID": [
+      { "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 6 },
+      { "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 7 }
+    ]
+  },
+  { "name": "Slaapkamer", "ID": [{ "NAME": "Lamp", "TYPE": "wakeUp", "STATUS": "0", "VALUE": "485", "DEVICE_ID": 1, "WAKEUPTIME": "6:45", "WAKEUPTIMESTATUS": "0" }] },
+  { "name": "Niek", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 8 }] },
+  { "name": "Badkamer", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": 9 }] },
+  { "name": "Kledinkast", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": "0010" }] },
+  { "name": "Zolder", "ID": [{ "NAME": "Lamp", "TYPE": "Toggle", "STATUS": "ON", "VALUE": 1023, "DEVICE_ID": "0011" }] }
+]
