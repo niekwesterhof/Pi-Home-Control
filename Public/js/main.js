@@ -185,6 +185,14 @@ socket.on("reloadPage", () => {
     });
 });
 
+function showSettingsMenu() {
+  document.getElementById("settingsMenu").style.display = "block";
+}
+
+function hideSettingsMenu() {
+  document.getElementById("settingsMenu").style.display = "none";
+}
+
 function showAddDeviceMenu() {
   createAddDeviceMenu();
   document.getElementById("addDevice").style.display = "block";
@@ -192,6 +200,14 @@ function showAddDeviceMenu() {
 
 function hideAddDeviceMenu() {
   document.getElementById("addDevice").style.display = "none";
+}
+
+function showDeviceMenu() {
+  document.getElementById("deviceMenu").style.display = "block";
+}
+
+function hideDeviceMenu() {
+  document.getElementById("deviceMenu").style.display = "none";
 }
 
 window.addEventListener("click", function (e) {
@@ -307,11 +323,11 @@ function addEventListener() {
   menuButtonSettings.addEventListener("click", () => {
     if (!menuSettingOpen) {
       menuButtonSettings.classList.add("open");
-      document.getElementById("settingsMenu").style.display = "block";
+      document.getElementById("settingsDropdown").style.display = "block";
       menuSettingOpen = true;
     } else {
       menuButtonSettings.classList.remove("open");
-      document.getElementById("settingsMenu").style.display = "none";
+      document.getElementById("settingsDropdown").style.display = "none";
       menuSettingOpen = false;
     }
   });

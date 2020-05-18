@@ -440,7 +440,7 @@ footer input {
   border-color: green;
 }
 
-.settingsMenu {
+.settingsDropdown {
   display: none;
   position: absolute;
   top: 120px;
@@ -449,71 +449,22 @@ footer input {
   width: 220px;
 }
 
-.settingsMenu h5 {
-  color: #333;
-  font-size: 24px;
-  font-weight: 80;
-  margin-bottom: 10px;
-}
-.settingsMenu form {
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-
-.settingsMenu input {
-  width: 230px;
-  padding: 14px 10px;
-  color: #333;
-  background: none;
-  border: 2px solid #333;
-  text-align: center;
-  cursor: pointer;
-  margin: 5px;
-}
-.settingsMenu select {
-  width: 230px;
-  padding: 14px 10px;
-  color: #333;
-  background: none;
-  border: 2px solid #333;
-  text-align: center;
-  cursor: pointer;
-  margin: 5px;
-}
-
-.settingsMenu ul {
+.settingsDropdown ul {
   list-style-type: none;
   cursor: pointer;
 }
 
-.settingsMenu .submit {
-  height: 50px;
-  width: 150;
-  cursor: pointer;
-  margin-top: 25px;
-  font-size: 16px;
-}
-
-.settingsMenu .submit:hover {
+.settingsDropdown li a:hover {
   background-color: #333;
   color: var(--text-color-light);
 }
 
-.settingsMenu li a:hover {
-  background-color: #333;
-  color: var(--text-color-light);
-}
-
-.settingsMenu ul {
+.settingsDropdown ul {
   list-style-type: none;
   cursor: pointer;
 }
 
-.settingsMenu li a {
+.settingsDropdown li a {
   display: block;
   color: #333;
   padding: 16px 32px;
@@ -522,6 +473,35 @@ footer input {
   margin: 5px auto;
 }
 
-.settingsMenu li a:hover {
+.settingsDropdown li a:hover {
   background-color: #555;
+}
+
+.settingsMenu {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  width: 500px;
+  height: 500px;
+}
+
+.settingsMenu h5 {
+  color: #333;
+  font-size: 24px;
+  font-weight: 80;
+  margin-bottom: 10px;
+}
+
+.deviceMenu {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--primary-color);
+  width: 500px;
+  height: 500px;
 }
