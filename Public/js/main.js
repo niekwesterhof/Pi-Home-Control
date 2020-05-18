@@ -269,6 +269,7 @@ socket.on("newDeviceFound", (payload) => {
   let data = payload.split("-");
   foundDevices[foundDevicesIndex] = data[0];
 });
+
 function findNewDevices() {
   foundDevices = 0;
   foundDevicesIndex = 0;
