@@ -4,7 +4,7 @@ var foundDevices = 0;
 var foundDevicesIndex = 0;
 var borderColerBlue = "rgba(13, 110, 139, 0.75)";
 var borderColerGreen = "Green";
-var borderColer333 = "#333star";
+var borderColer333 = "#333";
 var borderColorOffline = "#666";
 var rooms = [
   {
@@ -23,9 +23,15 @@ var rooms = [
   },
 ];
 
-var settings = [{ Type: ["Toggle", "Dimmer", "wakeUp"], Device: ["slaapkamer-1"] }];
+var settings = [{ Type: [""], Device: [{ Name: "", ID: "", Room: "", Type: "" }], wakeUp: { Time: "", Day: 0 } }];
 
-function fetchJSON() {
+function fetchsJSON() {
+  fetch("./json/settings.json")
+    .then((response) => response.json())
+    .then((data) => {
+      settings = data;
+      console.log(settings);
+    });
   fetch("./json/rooms.json")
     .then((response) => response.json())
     .then((data) => {
@@ -35,17 +41,10 @@ function fetchJSON() {
       openRoom(0);
       addEventListener();
     });
-  fetch("./json/settings.json")
-    .then((response) => response.json())
-    .then((data) => {
-      settings = data;
-      console.log(settings);
-    });
 }
 
-async function openRoom(index) {
+function openRoom(index) {
   selectedRoom = index;
-  var currenttime = await getTime();
   var element = document.getElementById("button-container");
   element.innerHTML = "";
   for (var i = 0; i < rooms[index].ID.length; i++) {
@@ -92,7 +91,7 @@ async function openRoom(index) {
       time.setAttribute("type", "time");
       time.setAttribute("step", 1);
       time.setAttribute("id", "time" + rooms[index].ID[i].DEVICE_ID);
-      time.setAttribute("value", currenttime);
+      time.setAttribute("value", settings.wakeUp.Time);
 
       div.appendChild(time);
 
@@ -102,14 +101,14 @@ async function openRoom(index) {
     }
     element.appendChild(div);
     if (rooms[index].ID[i].STATUS == 0) {
-      document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColer333;
+      document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColerBlue;
       document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).disabled = true;
-      document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColerBlue;
+      document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColer333;
       document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).disabled = false;
     } else if (rooms[index].ID[i].STATUS == 1) {
-      document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColerBlue;
+      document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColer333;
       document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).disabled = false;
-      document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColer333;
+      document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColerBlue;
       document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).disabled = true;
     } else {
       document.getElementById("off-" + rooms[index].ID[i].DEVICE_ID).style.borderColor = borderColorOffline;
@@ -118,16 +117,6 @@ async function openRoom(index) {
       document.getElementById("on-" + rooms[index].ID[i].DEVICE_ID).disabled = true;
     }
   }
-}
-
-async function getTime() {
-  return new Promise((time) => {
-    var d = new Date();
-    var h = d.getHours();
-    var m = d.getMinutes();
-    var s = d.getSeconds();
-    time(h + ":" + m + ":" + s);
-  });
 }
 
 function sendData(indexRoom, indexID, val) {
@@ -191,6 +180,39 @@ function showSettingsMenu() {
 
 function hideSettingsMenu() {
   document.getElementById("settingsMenu").style.display = "none";
+  var weekValue = 0;
+  var monday = document.getElementById("weekButtonMonday").checked;
+  var tuesday = document.getElementById("weekButtonTuesday").checked;
+  var wednesday = document.getElementById("weekButtonWednesday").checked;
+  var thursday = document.getElementById("weekButtonThursday").checked;
+  var friday = document.getElementById("weekButtonFriday").checked;
+  var saterday = document.getElementById("weekButtonSaterday").checked;
+  var sunday = document.getElementById("weekButtonSunday").checked;
+  console.log(monday);
+  if (monday == true) {
+    weekValue = weekValue + 1;
+  }
+  if (tuesday == true) {
+    weekValue = weekValue + 2;
+  }
+  if (wednesday == true) {
+    weekValue = weekValue + 4;
+  }
+  if (thursday == true) {
+    weekValue = weekValue + 8;
+  }
+  if (friday == true) {
+    weekValue = weekValue + 16;
+  }
+  if (saterday == true) {
+    weekValue = weekValue + 32;
+  }
+  if (sunday == true) {
+    weekValue = weekValue + 64;
+  }
+  console.log(weekValue);
+  settings.wakeUp.Time = weekValue;
+  socket.emit("settings", settings);
 }
 
 function showAddDeviceMenu() {
@@ -204,28 +226,12 @@ function hideAddDeviceMenu() {
 
 function showDeviceMenu() {
   document.getElementById("deviceMenu").style.display = "block";
+  // make list of connected devices
 }
 
 function hideDeviceMenu() {
   document.getElementById("deviceMenu").style.display = "none";
 }
-
-window.addEventListener("click", function (e) {
-  if (document.getElementById("addDevice").contains(e.target)) {
-    // Clicked in box
-  } else {
-    document.getElementById("addDevice").style.display = "none";
-    console.log("clicked outside div");
-  }
-});
-
-document.getElementById("body").onclick = function (e) {
-  if (e.target != document.getElementById("addDevice")) {
-    console.log("You clicked outside");
-  } else {
-    console.log("You clicked inside");
-  }
-};
 
 function addDevice() {
   document.getElementById("AddDeviceRoom").style.borderColor = "#333";
@@ -293,18 +299,19 @@ function findNewDevices() {
 }
 
 function createAddDeviceMenu() {
+  findNewDevices();
   var AddDeviceRoom = '<option value="" disabled selected hidden>Select Room</option>';
   for (var i = 0; i < rooms.length; i++) {
     AddDeviceRoom += "<option>" + rooms[i].name + "</option>";
   }
   var AddDeviceType = '<option value="" disabled selected hidden>Select Type</option>';
-  for (var i = 0; i < settings[0].Type.length; i++) {
-    AddDeviceType += "<option>" + settings[0].Type[i] + "</option>";
+  for (var i = 0; i < settings.Type.length; i++) {
+    AddDeviceType += "<option>" + settings.Type[i] + "</option>";
   }
   if (foundDevices > 0) {
     var SelectDevice = '<option value="" disabled selected hidden>Select Device</option>';
-    for (var i = 0; i < settings[0].Device.length; i++) {
-      SelectDevice += "<option>" + settings[0].Device[i].Name + "</option>";
+    for (var i = 0; i < settings.Device.length; i++) {
+      SelectDevice += "<option>" + settings.Device[i].Name + "</option>";
     }
   } else {
     console.log("ErroMessage: No device found");

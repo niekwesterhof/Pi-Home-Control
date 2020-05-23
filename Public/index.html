@@ -47,33 +47,50 @@
     </div>
 
     <div class="settingsMenu" id="settingsMenu">
-      <h5>Settings</h5>
-      <div class="weekButtonsContaner" id="weekButtonsContaner">
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Monday</input><span class="slider round"></span>
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Dinsdag</input><span class="slider round"></span>
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Woensdag</input><span class="slider round"></span>
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Donderdag</input><span class="slider round"></span>
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Vrijdag</input><span class="slider round"></span>
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Zaterdag</input><span class="slider round"></span>
-        <label  class="Switch" for="Monday"></label>
-        <input id="Monday" type="checkbox">Zondag</input><span class="slider round"></span>
+      <div class="settingsMenuTopBorder">
+        <div class="exitForm" id="exitForm">
+          <button class="exitFormButton" id="exitFormButton" onclick="hideSettingsMenu()">X</button>
+        </div>
+        <h5>Settings</h5>
       </div>
-      <div class="exitForm" id="exitForm">
-        <button class="exitFormButton" id="exitFormButton" onclick="hideSettingsMenu()">X</button>
+      <h5>WakeupLed days</h5>
+      <div class="weekButtonsContaner" id="weekButtonsContaner">
+        <div class="weekButton">
+          <p>Monday</p>
+          <label class="switch"><input id="weekButtonMonday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="weekButton">
+          <p>Tuesday</p>
+          <label class="switch"><input id="weekButtonTuesday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="weekButton">
+          <p>Wednesday</p>
+          <label class="switch"><input id="weekButtonWednesday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="weekButton">
+          <p>Thursday</p>
+          <label class="switch"><input id="weekButtonThursday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="weekButton">
+          <p>Friday</p>
+          <label class="switch"><input id="weekButtonFriday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="weekButton">
+          <p>Saterday</p>
+          <label class="switch"><input id="weekButtonSaterday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
+        <div class="weekButton">
+          <p>Sunday</p>
+          <label class="switch"><input id="weekButtonSunday" type="checkbox" /><span class="slider round"></span></label>
+        </div>
       </div>
     </div>
 
     <div class="deviceMenu" id="deviceMenu">
-      <h5>Connected Devices</h5>
       <div class="exitForm" id="exitForm">
         <button class="exitFormButton" id="exitFormButton" onclick="hideDeviceMenu()">X</button>
       </div>
+      <h5>Connected Devices</h5>
     </div>
 
     <div class="settingsDropdown" id="settingsDropdown">

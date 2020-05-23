@@ -11,13 +11,15 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.24.0",
-    "mongodb": "^3.5.5",
-    "mosca": "^2.8.3",
+    "i2c-bus": "^5.2.0",
+    "moment": "^2.26.0",
+    "mongodb": "^3.5.7",
+    "oled-font-5x7": "^1.0.3",
+    "oled-i2c-bus": "^1.0.11",
     "prompt": "^1.0.0",
     "socket.io": "^2.3.0"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.4"
   }
 }
