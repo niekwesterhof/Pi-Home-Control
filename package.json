@@ -17,7 +17,7 @@
     "oled-font-5x7": "^1.0.3",
     "oled-i2c-bus": "^1.0.11",
     "prompt": "^1.0.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.5.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
