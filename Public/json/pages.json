@@ -1,0 +1,13 @@
+[
+    {"ID":"5","NAME":"MAIN PAGE","BUTTONS":["Menu","Show", "Connect Implement", "Select Implement","Start Implement","Blinker Left", "Blinker Right", "Worklight Front","Worklight Back","Headlights","Verstraler", "Beacon Lights","Faster Time","Slower Time","Throttle On/Off", "Real Mower On/Off","Set Fill Lever","Fast Night Settings"]},
+    {"ID":"1","NAME":"VCA","BUTTONS":["Settings","Look Forward","Look Backward","Look Left","Look Right","Toggle RasterDirection", "Reset RasterDirection","Turn Rasterdirection left","Turn Rasterdirection Right","Direction To Left","Direction To Right","Toggle Drive Direction", "Drive Forward","Driver Backward","Not Automatic Returnsteering"]},
+    {"ID":"2","NAME":"VCA GEARS","BUTTONS":["Gear 1","Gear 2","Gear 3","Gear 4", "Gear 5","Gear 6"]},
+    {"ID":"2","NAME":"AutoDrive","BUTTONS":["Mouse","Settings","Activate","Next Destination","Previous Destination","Next Unload Destination","Previous Unload Destination", "Editor Modus","Select Closest RoutePoint","Select Next RoutePoint", "Connection On/Off","Make New Destination","Remove RoutePoint","Delete Destination", "Select Next Fill Type", "Select Previous Fill Type","Collect","Open Routes Manager","Change Modus","Open Menu","Call Driver", "Go To Arrived Driver"]},
+    {"ID":"2","NAME":"Courseplay","BUTTONS":["Settings","HUD", "GO TO: Load","Go TO: Transport","GO TO: Unload","GO TO: Ask Unload","Start Driving","Now Driving","Stop At Next Trigger","Start"]},
+    {"ID":"3","NAME":"FOLLOW ME","BUTTONS":["Activate", "Follower Stop" ,"-","-","-","Own Wait/Start","Own Distance +","Own Distance -", "Own Alignment Left","Own Alignment Right","Follower Wait/Start","Follower Distance +","Follower Distance -","Follower Aligment Left","Follower Alignment Right"]},
+    {"ID":"5","NAME":"TRAILER","BUTTONS":["Unload","Dump on Ground","Pipe","Open","Close", "Open 2", "CLOSE 2", "Open 3", "Close 3"]},
+    {"ID":"6","NAME":"RC","BUTTONS":["Move Camera Outside","Move Camera Inside","Move Camera Forward","Move Camera Back","Reset Reversing Camera Pos","Show/Hide Help For Reversing Camera","Turn ON/OFF Right Reversing Camera","Center Indoor Camera View", "Activate All Reversing Camera Functions For..","Activate All Reversing Camera Functions As.."]},
+    {"ID":"2","NAME":"Millenial Farms","BUTTONS":["Load Dry Silo","Unload Dry Silo","Load Wet Silo","Unload Wet Silo", "Transfer Wet-> Dry","Gear 6"]}
+    
+]
+
