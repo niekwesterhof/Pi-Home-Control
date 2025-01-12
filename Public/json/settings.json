@@ -1,1 +1,1 @@
-{ "Type": ["Toggle", "Dimmer", "wakeUp"], "Device": [{ "Name": "slaapkamer-1", "ID": "0001", "Room": "Slaapkamer", "Type": "wakeUp" }], "wakeUp": { "Time": "00:00", "Day": 5 } }
+{"Type":["Toggle","Dimmer","wakeUp"],"Device":[{"Name":"slaapkamer-1","ID":"1","Room":"Slaapkamer","Type":"wakeUpLed","Hostname":"ESP-F02EA3","IPAddress":"192.168.2.137","Status":3}],"wakeUp":{"Time":"06:55","Day":31}}

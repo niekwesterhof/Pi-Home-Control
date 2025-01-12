@@ -1,6 +1,12 @@
+/*
+CSS File for Home Control Server
+*/
+
 :root {
-  --primary-color: rgba(13, 110, 139, 0.75); /*rgba(13, 110, 139, 0.75);*/
-  --overlay-color: rgb(24, 39, 51); /*rgba(24, 39, 51, 0.85);*/
+  --primary-color: rgba(13, 110, 139, 0.75);
+  /*rgba(13, 110, 139, 0.75);*/
+  --overlay-color: rgb(24, 39, 51);
+  /*rgba(24, 39, 51, 0.85);*/
   --text-color-light: #f1f1f1;
   --text-color-dark: #333;
   --menu-speed: 0.75s;
@@ -31,6 +37,7 @@ body {
     "button-container button-container"
     "footer footer";
   height: 100%;
+  max-width: 100%;
   background-color: #333;
 }
 
@@ -47,20 +54,32 @@ body.active {
     "footer footer";
   height: 100%;
 }
-.nav-bar-button {
+
+.loadingDevices {
+  display: flex;
+}
+
+.addDevicesForm {
+  display: flex;
+}
+
+#nav-bar-button {
   grid-area: nav-bar-button;
 }
+
 .room-search-bar {
   grid-area: room-search-bar;
   display: grid;
-  grid-template-columns: 200px auto 200px;
+  grid-template-columns: auto auto auto;
   grid-template-areas: "room search";
   border-bottom: 2px solid var(--primary-color);
   background-color: #444;
 }
+
 .room-search-bar .room {
   grid-area: room;
 }
+
 .menu-button-room {
   grid-area: hamburger-rooms;
   position: relative;
@@ -77,6 +96,7 @@ body.active {
   transition: all 0.5s ease-in-out;
   border: 3px solid var(--text-color-light);
 }
+
 .menu-button-settings {
   grid-area: hamburger-settings;
   position: relative;
@@ -92,6 +112,7 @@ body.active {
   transition: all 0.5s ease-in-out;
   border: 2px solid var(--text-color-light);
 }
+
 .menu-burger-room {
   width: 20px;
   height: 3px;
@@ -105,6 +126,7 @@ body.active {
   background: var(--primary-color);
   transition: all 0.5s ease-in-out;
 }
+
 .menu-burger-room::before,
 .menu-burger-room::after {
   content: "";
@@ -114,6 +136,7 @@ body.active {
   background: var(--primary-color);
   transition: all 0.5s ease-in-out;
 }
+
 .menu-burger-settings::before,
 .menu-burger-settings::after {
   content: "";
@@ -123,6 +146,7 @@ body.active {
   background: var(--primary-color);
   transition: all 0.5s ease-in-out;
 }
+
 .menu-burger-room::before {
   transform: translateY(-7px);
 }
@@ -130,6 +154,7 @@ body.active {
 .menu-burger-room::after {
   transform: translateY(7px);
 }
+
 .menu-burger-settings::before {
   transform: translateY(-7px);
 }
@@ -177,6 +202,7 @@ body.active {
   justify-self: center;
   align-self: center;
 }
+
 .room-search-bar .search input {
   border: 2px solid var(--primary-color);
   border-radius: 4px;
@@ -199,9 +225,11 @@ body.active {
   background-color: var(--primary-color);
   overflow-y: scroll;
 }
+
 .nav-bar-left::-webkit-scrollbar {
   display: none;
 }
+
 .nav-bar-left li a:hover {
   background-color: #333;
   color: var(--text-color-light);
@@ -228,6 +256,7 @@ body.active {
 .nav-bar {
   grid-area: nav-bar;
   display: grid;
+  max-width: 100%;
   grid-template-columns: 80px auto 80px;
   grid-template-areas: "hamburger-rooms nav-bar-button hamburger-settings";
   background-color: #333;
@@ -271,7 +300,7 @@ footer {
 }
 
 footer input {
-  width: 500px;
+  width: 250px;
   padding: 14px 10px;
   background: none;
   border: 2px solid var(--primary-color);
@@ -297,6 +326,7 @@ footer input {
   font-weight: 80;
   margin-bottom: 10px;
 }
+
 .addDevice form {
   display: flex;
   flex-direction: column;
@@ -316,6 +346,7 @@ footer input {
   cursor: pointer;
   margin: 5px;
 }
+
 .addDevice select {
   width: 230px;
   padding: 14px 10px;
@@ -356,7 +387,7 @@ footer input {
 
 .button-container {
   grid-area: button-container;
-  overflow: hidden;
+  overflow: auto;
   height: 100%;
   background-color: #555;
   width: 100%;
@@ -365,12 +396,15 @@ footer input {
 
 .control {
   width: 100%;
-  position: absolute;
+  position: relative;
   display: grid;
   grid-template-columns: 200px 70px 70px auto;
   grid-gap: 5px;
   grid-template-areas: "name on off slider";
+  border: 2px solid #333;
+  margin-bottom: 5px;
 }
+
 .control button {
   width: 60px;
   height: 40px;
@@ -383,6 +417,7 @@ footer input {
   text-align: center;
   user-select: none;
 }
+
 .control button:hover {
   background-color: #333;
   color: var(--text-color-light);
@@ -392,7 +427,7 @@ footer input {
   grid-area: name;
   align-self: center;
   justify-self: center;
-  width: 180px;
+  width: 60%;
   height: 40px;
   background: none;
   border: none;
@@ -424,6 +459,7 @@ footer input {
   justify-self: center;
   align-self: center;
 }
+
 .control .control-slider {
   opacity: 1;
 }
@@ -436,6 +472,7 @@ footer input {
   background: var(--primary-color);
   cursor: pointer;
 }
+
 .control #on-abc213 {
   border-color: green;
 }
@@ -485,13 +522,13 @@ footer input {
   transform: translate(-50%, -50%);
   background-color: var(--primary-color);
   width: 500px;
-  height: 500px;
+  height: 50%;
 }
 
-.settingsMenu h5 {
-  color: #333;
+h5 {
+  color: var(--text-color-light);
   font-size: 24px;
-  font-weight: 80;
+  font-weight: 100;
   margin-bottom: 10px;
 }
 
@@ -510,8 +547,10 @@ footer input {
 .Switch {
   position: relative;
   display: inline-block;
-  width: 60px;
-  height: 34px;
+  width: 40px;
+  height: 26px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
 }
 
 /* Hide default HTML checkbox */
@@ -537,36 +576,36 @@ footer input {
 .slider:before {
   position: absolute;
   content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
+  height: 20px;
+  width: 20px;
+  left: 3px;
+  bottom: 2px;
   background-color: white;
   -webkit-transition: 0.4s;
   transition: 0.4s;
 }
 
-input:checked + .slider {
-  background-color: #2196f3;
+input:checked+.slider {
+  background-color: var(--primary-color);
 }
 
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196f3;
+input:focus+.slider {
+  box-shadow: 0 0 1px var(--primary-color);
 }
 
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+input:checked+.slider:before {
+  -webkit-transform: translateX(12px);
+  -ms-transform: translateX(12px);
+  transform: translateX(12px);
 }
 
 /* Rounded sliders */
 .slider.round {
-  border-radius: 34px;
+  border-radius: 11px;
 }
 
 .slider.round:before {
-  border-radius: 50%;
+  border-radius: 11px;
 }
 
 .settingsMenu h5 {
@@ -588,6 +627,7 @@ input:checked + .slider:before {
   align-content: center;
   text-align: center;
 }
+
 p {
   font-size: 14px;
 }
@@ -599,4 +639,93 @@ p {
 .settingsMenuTopBorder h5 {
   align-self: center;
   justify-self: center;
+}
+
+@media screen and (max-width: 700px) {
+  .body {
+    width: 100%;
+  }
+
+  .room-search-bar {
+    grid-template-columns: 20px auto 20px;
+  }
+
+  .control {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20%;
+    grid-gap: 5px;
+    grid-template-areas: "name name on off" ". slider slider slider";
+    border: 2px solid #333;
+    margin-bottom: 5px;
+  }
+
+  .control .control-slider {
+    margin: 10px;
+  }
+
+  .settingsMenu {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 110, 139, 0.85);
+  }
+
+  .weekButtonsContaner {
+    width: 90%;
+    height: 70%;
+    display: grid;
+    float: none;
+  }
+
+  .weekButton {
+    border: 1px solid black;
+    padding: 20px;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 100px auto;
+    grid-template-areas: "name" "switch";
+    align-content: left;
+    text-align: left;
+  }
+
+  .weekButton .switch {
+    margin-left: 50px;
+    grid-area: "switch";
+  }
+
+  .weekButton p {
+    grid-area: "name";
+  }
+}
+
+@media screen and (max-height: 400px) {
+  .settingsMenu {
+    width: 100%;
+    height: 100%;
+  }
+
+  body {
+    grid-template-columns: 230px auto;
+    grid-template-rows: 80px auto;
+    grid-template-areas:
+      "nav-bar nav-bar"
+      "button-container button-container";
+  }
+
+  body.active {
+    grid-template-columns: 230px auto;
+    grid-template-rows: 80px auto;
+    grid-template-areas:
+      "nav-bar nav-bar"
+      "nav-bar-left button-container";
+  }
+
+  .room-search-bar {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
 }
